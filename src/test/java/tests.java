@@ -13,7 +13,7 @@ public class tests {
 
     String firstName = "Vladimir";
     String lastName = "Lenin";
-    String gender = "gender-radio-1";
+    //String gender = "gender-radio-1";
 
 
     @Test
@@ -68,13 +68,11 @@ public class tests {
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[6]/td[2]" ).shouldHave(text("Accounting" + ", " + "Maths"));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[7]/td[2]" ).shouldHave(text("Sports" + ", " + "Reading"  + ", " + "Music"));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[2]" ).shouldHave(text("image.png"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[9]/td[2]" ).shouldHave(text("Red square Moscow"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[10]/td[2]" ).shouldHave(text("NCR" + " " + "Delhi"));
 
 
-        //$x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[2]" ).shouldHave(text(asdf@asdf.ru));
 
-
-        //$(byId("firstName")).shouldHave(text(firstName));
-        //$(byId("firstName")).shouldHave(text(lastName));
 
     }
 
