@@ -13,7 +13,7 @@ public class tests {
 
     String firstName = "Vladimir";
     String lastName = "Lenin";
-    //String gender = "gender-radio-1";
+    String gender = "gender-radio-1";
 
 
     @Test
