@@ -28,21 +28,15 @@ public class tests {
 
         SelenideElement firstName1 = $(byId("firstName")).setValue(firstName);
         SelenideElement lastName1 = $(byId("lastName")).setValue(lastName);
-        //SelenideElement selenideElement1 = $(byId(gender)).selectRadio("Male");
         $(byText("Male")).click();
-        //SelenideElement selenideElement1 = $(byName("gender")).selectRadio("Male");
         $(byId("userEmail")).setValue("asdf@asdf.ru");
         $(byId("userNumber")).setValue("9876543210");
 
         $(byId("dateOfBirthInput")).click();
-                //.setValue("22 Apr 1970");
+                //.setValue("03 Apr 1970");
         $(byClassName("react-datepicker__month-select")).selectOption(3);
         $(byClassName("react-datepicker__year-select")).selectOptionByValue("1970");
-        $(byClassName("react-datepicker__day--003")).click();
-
-        //SelenideElement autoComplete = $(byClassName("subjects-auto-complete__value-container"));
-        //autoComplete.click();
-        //autoComplete.sendKeys("a");
+        $(byClassName("react-datepicker__day--022")).click();
 
         $(byId("subjectsInput")).setValue("Accounting").pressEnter();
         $(byId("subjectsInput")).setValue("Maths").pressTab();
@@ -58,33 +52,24 @@ public class tests {
         $(byId("react-select-3-input")).setValue("NCR").pressTab();
         $(byId("react-select-4-input")).setValue("Delhi").pressEnter();
 
-        $(byId("submit")).click();
-
-        //hobby1.toWebElement().click();
-        //$(byId("hobbies-checkbox-2")).click();
-
-
-
-
-
-        //subjectsInput
-
-
-        //.setValue("Accounting");
-
-        //subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3
-
-                //.setValue("2");
-
-        //$(byId(gender)).click();
-
         //press button
+
+        $(byId("submit")).click();
 
         //check result
 
         ElementsCollection collection = $$x("//table/tbody/tr");
 
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[2]" ).shouldHave(text(firstName));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[2]" ).shouldHave(text(firstName + " " + lastName));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[2]/td[2]" ).shouldHave(text("asdf@asdf.ru"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[3]/td[2]" ).shouldHave(text("Male"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[4]/td[2]" ).shouldHave(text("9876543210"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[5]/td[2]" ).shouldHave(text("22 April,1970"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[6]/td[2]" ).shouldHave(text("Accounting" + ", " + "Maths"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[7]/td[2]" ).shouldHave(text("Sports" + ", " + "Reading"  + ", " + "Music"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[2]" ).shouldHave(text("image.png"));
+
+
         //$x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[2]" ).shouldHave(text(asdf@asdf.ru));
 
 
