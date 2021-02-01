@@ -34,9 +34,9 @@ public class tests {
 
         $(byId("dateOfBirthInput")).click();
                 //.setValue("03 Apr 1970");
-        $(byClassName("react-datepicker__month-select")).selectOption(3);
+        $(byClassName("react-datepicker__month-select")).selectOption(3); // month -1
         $(byClassName("react-datepicker__year-select")).selectOptionByValue("1970");
-        $(byClassName("react-datepicker__day--022")).click();
+        $(byClassName("react-datepicker__day--022")).click(); // 3 last digits - a day in a month
 
         $(byId("subjectsInput")).setValue("Accounting").pressEnter();
         $(byId("subjectsInput")).setValue("Maths").pressTab();
