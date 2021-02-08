@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Command;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -12,8 +13,16 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Tests {
 
-    String firstName = "Vladimir";
-    String lastName = "Lenin";
+    Faker faker = new Faker();
+
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    //String gender = faker.internet().emailAddress();
+    String emailAddress = faker.internet().emailAddress();
+    String mPhone = faker.number().digits(10);
+    String fullAddress = faker.address().fullAddress();
+
+
 
 
 
@@ -27,52 +36,52 @@ public class Tests {
 
         //fill form
 
-        SelenideElement firstName1 = $(byId("firstName")).setValue(firstName);
-        SelenideElement lastName1 = $(byId("lastName")).setValue(lastName);
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
         $(byText("Male")).click();
-        $(byId("userEmail")).setValue("asdf@asdf.ru");
-        $(byId("userNumber")).setValue("9876543210");
+        $("#userEmail").setValue(emailAddress);
+        $("#userNumber").setValue(mPhone);
 
-        $(byId("dateOfBirthInput")).click();
+        $("#dateOfBirthInput").click();
                 //.setValue("03 Apr 1970");
-        $(byClassName("react-datepicker__month-select")).selectOption(3); // month -1
-        $(byClassName("react-datepicker__year-select")).selectOptionByValue("1970");
-        $(byClassName("react-datepicker__day--022")).click(); // 3 last digits - a day in a month
-        $(byId("subjectsInput")).setValue("Accounting").pressEnter();
-        $(byId("subjectsInput")).setValue("Maths").pressTab();
+        $(".react-datepicker__month-select").selectOption(3); // month -1
+        $(".react-datepicker__year-select").selectOptionByValue("1970");
+        $(".react-datepicker__day--022").click(); // 3 last digits - a day in a month
+        $("#subjectsInput").setValue("Accounting").pressEnter();
+        $("#subjectsInput").setValue("Maths").pressTab();
 
         $(byText("Sports")).click();
         $(byText("Reading")).click();
         $(byText("Music")).click();
 
-        $(byId("uploadPicture")).uploadFile(new File("/Users/vladimirklonin/Desktop/image.png"));
+        $("#uploadPicture").uploadFile(new File("/Users/vladimirklonin/Desktop/image.png"));
 
-        $(byId("currentAddress")).setValue("Red square Moscow");
+        $("#currentAddress").setValue(fullAddress);
 
-        $(byId("react-select-3-input")).setValue("NCR").pressTab();
-        $(byId("react-select-4-input")).setValue("Delhi").pressEnter();
+        $("#react-select-3-input").setValue("NCR").pressTab();
+        $("#react-select-4-input").setValue("Delhi").pressEnter();
 
         //press button
 
-        $(byId("submit")).click();
+        $("#submit").pressEnter();
 
         //check result
 
-        ElementsCollection collection = $$x("//table/tbody/tr");
+        //ElementsCollection collection = $$x("//table/tbody/tr");
         //collection.shouldHave(texts(firstName + " " + lastName));
 
 
 
 
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[2]" ).shouldHave(text(firstName + " " + lastName));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[2]/td[2]" ).shouldHave(text("asdf@asdf.ru"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[2]/td[2]" ).shouldHave(text(emailAddress));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[3]/td[2]" ).shouldHave(text("Male"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[4]/td[2]" ).shouldHave(text("9876543210"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[4]/td[2]" ).shouldHave(text(mPhone));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[5]/td[2]" ).shouldHave(text("22 April,1970"));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[6]/td[2]" ).shouldHave(text("Accounting" + ", " + "Maths"));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[7]/td[2]" ).shouldHave(text("Sports" + ", " + "Reading"  + ", " + "Music"));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[2]" ).shouldHave(text("image.png"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[9]/td[2]" ).shouldHave(text("Red square Moscow"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[9]/td[2]" ).shouldHave(text(fullAddress));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[10]/td[2]" ).shouldHave(text("NCR" + " " + "Delhi"));
 
 
