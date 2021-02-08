@@ -5,15 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class tests {
+public class Tests {
 
     String firstName = "Vladimir";
     String lastName = "Lenin";
-    String gender = "gender-radio-1";
+
 
 
     @Test
@@ -37,7 +38,6 @@ public class tests {
         $(byClassName("react-datepicker__month-select")).selectOption(3); // month -1
         $(byClassName("react-datepicker__year-select")).selectOptionByValue("1970");
         $(byClassName("react-datepicker__day--022")).click(); // 3 last digits - a day in a month
-
         $(byId("subjectsInput")).setValue("Accounting").pressEnter();
         $(byId("subjectsInput")).setValue("Maths").pressTab();
 
@@ -59,6 +59,10 @@ public class tests {
         //check result
 
         ElementsCollection collection = $$x("//table/tbody/tr");
+        //collection.shouldHave(texts(firstName + " " + lastName));
+
+
+
 
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[1]/td[2]" ).shouldHave(text(firstName + " " + lastName));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[2]/td[2]" ).shouldHave(text("asdf@asdf.ru"));
