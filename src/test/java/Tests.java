@@ -26,7 +26,7 @@ public class Tests {
 
         open("https://demoqa.com/automation-practice-form");
 
-        //fill a form
+        //fill
 
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
