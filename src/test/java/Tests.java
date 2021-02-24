@@ -17,6 +17,7 @@ public class Tests {
     String emailAddress = faker.internet().emailAddress();
     String mPhone = faker.number().digits(10);
     String fullAddress = faker.address().fullAddress();
+    String picture = "1.png";
 
     @Test
     void formFillingTest(){
@@ -41,7 +42,7 @@ public class Tests {
         $(byText("Sports")).click();
         $(byText("Reading")).click();
         $(byText("Music")).click();
-        $("#uploadPicture").uploadFile(new File("/Users/vladimirklonin/Desktop/image.png"));
+        $("#uploadPicture").uploadFromClasspath("img/" + picture);
         $("#currentAddress").setValue(fullAddress);
         $("#react-select-3-input").setValue("NCR").pressTab();
         $("#react-select-4-input").setValue("Delhi").pressEnter();
@@ -59,7 +60,7 @@ public class Tests {
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[5]/td[2]" ).shouldHave(text("22 April,1970"));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[6]/td[2]" ).shouldHave(text("Accounting" + ", " + "Maths"));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[7]/td[2]" ).shouldHave(text("Sports" + ", " + "Reading"  + ", " + "Music"));
-        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[2]" ).shouldHave(text("image.png"));
+        $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[8]/td[2]" ).shouldHave(text(picture));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[9]/td[2]" ).shouldHave(text(fullAddress));
         $x("/html/body/div[3]/div/div/div[2]/div/table/tbody/tr[10]/td[2]" ).shouldHave(text("NCR" + " " + "Delhi"));
     }
