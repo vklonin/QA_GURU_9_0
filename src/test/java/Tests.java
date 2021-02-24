@@ -14,7 +14,6 @@ public class Tests {
     Faker faker = new Faker();
     String firstName = faker.name().firstName();
     String lastName = faker.name().lastName();
-    //String gender = faker.internet().emailAddress();
     String emailAddress = faker.internet().emailAddress();
     String mPhone = faker.number().digits(10);
     String fullAddress = faker.address().fullAddress();
