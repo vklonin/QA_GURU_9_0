@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Tests {
+public class Tests extends TestBase {
 
     Faker faker = new Faker();
     String firstName = faker.name().firstName();
