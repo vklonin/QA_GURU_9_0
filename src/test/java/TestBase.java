@@ -9,9 +9,15 @@ public class TestBase {
     @BeforeAll
     static void setup() {
 
+        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.startMaximized = true;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub";
+
+        //DesiredCapabilities capabilities = new DesiredCapabilities();
+        //Configuration.browserCapabilities = capabilities;
+
 
 
 
