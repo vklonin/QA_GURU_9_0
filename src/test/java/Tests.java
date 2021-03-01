@@ -24,9 +24,7 @@ public class Tests extends TestBase {
     void formFillingTest(){
 
         //open an address
-        step("Open a student registration form", () -> {
-            open("https://demoqa.com/automation-practice-form");
-        });
+        step("Open a student registration form", () -> open("https://demoqa.com/automation-practice-form"));
 
         //fill
         step("Fill a student registration form", () -> {
