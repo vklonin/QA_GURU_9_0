@@ -17,8 +17,10 @@ public class TestBase {
         Configuration.startMaximized = true;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub";
 
-        //DesiredCapabilities capabilities = new DesiredCapabilities();
-        //Configuration.browserCapabilities = capabilities;
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
 
 
 
@@ -30,6 +32,7 @@ public class TestBase {
         attachScreenshot("last screenshot");
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
+        attachVideo();
     }
 
 }
