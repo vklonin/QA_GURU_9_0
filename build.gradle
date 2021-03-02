@@ -38,3 +38,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task negative_test(type: Test) {
+    useJUnitPlatform {jUnitPlatformOptions -> includeTags 'negative'}
+}
