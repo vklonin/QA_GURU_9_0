@@ -77,7 +77,7 @@ public class Tests extends TestBase {
             $("#lastName").setValue(lastName);
             $(byText("Male")).click();
             $("#userEmail").setValue(emailAddress);
-            $("#userNumber").setValue("=="+mPhone);
+            $("#userNumber").setValue(mPhone);
             $("#dateOfBirthInput").click();
             $(".react-datepicker__month-select").selectOption(3); // month -1
             $(".react-datepicker__year-select").selectOptionByValue("1970");
