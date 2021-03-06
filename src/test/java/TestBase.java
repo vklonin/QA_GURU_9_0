@@ -18,16 +18,13 @@ public class TestBase {
 
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.startMaximized = true;
-        //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub";
+        //a string if I need it "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub"
         Configuration.remote = "https://user1:1234@"+address+":4444/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-
-
-
 
     }
 
