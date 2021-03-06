@@ -14,17 +14,17 @@ public class TestBase {
 
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
 
-        String address = System.getProperty("address", "selenoid.autotests.cloud");
-
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.startMaximized = true;
         //a string if I need it "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub"
-        Configuration.remote = "https://user1:1234@"+address+":4444/wd/hub";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
+
+        //bot qa_guru_9_0 https://t.me/qa_guru_9_0_bot 1680109489:AAHh4xdHrFDcaEi0IMOoGP1tCcgH8UoRGn8
 
     }
 
