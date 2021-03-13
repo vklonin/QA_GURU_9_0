@@ -25,6 +25,7 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
 
         //bot qa_guru_9_0 https://t.me/qa_guru_9_0_bot 1680109489:AAHh4xdHrFDcaEi0IMOoGP1tCcgH8UoRGn8
+        //chat id -1001424584591
 
     }
 
